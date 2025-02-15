@@ -479,7 +479,6 @@
         document.head.appendChild(customFont);
     }());
 </script>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -488,6 +487,8 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     const staticDir = "https://kitten-yyds.github.io/"
+    console.log(staticDir);
+    lrcType: 3,
     audio: [
       {
         
