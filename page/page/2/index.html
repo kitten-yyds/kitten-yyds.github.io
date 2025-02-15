@@ -434,7 +434,17 @@
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
-    audio: []
+    const staticDir = "https://kitten-yyds.github.io/"
+    audio: [
+      {
+        
+        name: 'Memories of Kindness',
+        artist: '鹿乃',
+        url: staticDir + 'Memories of Kindness.mp3',
+        cover: staticDir + 'Memories of Kindness.png',
+        lrc: staticDir + 'Memories of Kindness.lrc',
+      }
+    ]
     fixed: true
 });
 </script>

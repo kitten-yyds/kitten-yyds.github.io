@@ -377,8 +377,30 @@
 </div>
 </div><h2 id="latex-test">Latex test
 </h2>$$life=\int_{born}^{died} study(t)·dt$$<h2 id="picture-test">Picture test
-</h2><p>!(background1.jpg)
-!(background2.jpg)</p>
+</h2><p><img src="/p/testing-page/background1.jpg"
+	width="1600"
+	height="1124"
+	srcset="/p/testing-page/background1_hu_7c71a65f3f55b5cb.jpg 480w, /p/testing-page/background1_hu_f4a146a69bbf34fe.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="341px"
+	
+>
+<img src="/p/testing-page/background2.jpg"
+	width="1600"
+	height="1124"
+	srcset="/p/testing-page/background2_hu_9f2945aeebe0d498.jpg 480w, /p/testing-page/background2_hu_c14cde7e00880599.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="341px"
+	
+></p>
 <h2 id="list-test">List test
 </h2><ol>
 <li>First item</li>
@@ -565,7 +587,17 @@
 <script>
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
-    audio: []
+    const staticDir = "https://kitten-yyds.github.io/"
+    audio: [
+      {
+        
+        name: 'Memories of Kindness',
+        artist: '鹿乃',
+        url: staticDir + 'Memories of Kindness.mp3',
+        cover: staticDir + 'Memories of Kindness.png',
+        lrc: staticDir + 'Memories of Kindness.lrc',
+      }
+    ]
     fixed: true
 });
 </script>
