@@ -27,34 +27,46 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;项目照片&#34;&gt;项目照片
 &lt;/h1&gt;&lt;h2 id=&#34;v11&#34;&gt;v1.1
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic1.jpg&#34;
-	
-	
-	
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic1.jpg&#34;
+	width=&#34;4096&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic1_hu_adb03d6930a8cc8.jpg 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic1_hu_ab03d7ec54a97179.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;v1.1-pic1&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;222&#34;
+		data-flex-basis=&#34;533px&#34;
+	
 &gt;
-&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic2.jpg&#34;
-	
-	
-	
+&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic2.jpg&#34;
+	width=&#34;1844&#34;
+	height=&#34;4096&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic2_hu_58d99627e7be139c.jpg 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic2_hu_f9f5bf48b59d2b3f.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;v1.1-pic2&#34;
 	
 	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;45&#34;
+		data-flex-basis=&#34;108px&#34;
+	
 &gt;
-&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic3.jpg&#34;
-	
-	
-	
+&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic3.jpg&#34;
+	width=&#34;3210&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic3_hu_6646022089e31ef6.jpg 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/v1.1-pic3_hu_a39fabc97b1cb03c.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;v1.1-pic3&#34;
 	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;417px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;项目日志&#34;&gt;项目日志：
