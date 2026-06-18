@@ -461,6 +461,74 @@
       width: 100%;
       text-align: center;
     }
+
+    html[data-scheme="light"] {
+      --aplayer-background: rgba(255, 255, 255, 0.96);
+      --aplayer-background-selected: #f0f0f0;
+      --aplayer-border-color: rgba(0, 0, 0, 0.08);
+      --aplayer-text-color: #222222;
+      --aplayer-muted-color: #666666;
+      --aplayer-control-color: #555555;
+      --aplayer-bar-color: #d8d8d8;
+      --aplayer-loaded-color: #b8b8b8;
+    }
+
+    html[data-scheme="dark"] {
+      --aplayer-background: rgba(18, 18, 18, 0.95);
+      --aplayer-background-selected: #2a2a2a;
+      --aplayer-border-color: rgba(255, 255, 255, 0.12);
+      --aplayer-text-color: rgba(255, 255, 255, 0.9);
+      --aplayer-muted-color: rgba(255, 255, 255, 0.62);
+      --aplayer-control-color: rgba(255, 255, 255, 0.78);
+      --aplayer-bar-color: #3a3a3a;
+      --aplayer-loaded-color: #666666;
+    }
+
+    .aplayer.aplayer-fixed,
+    .aplayer.aplayer-fixed .aplayer-body,
+    .aplayer.aplayer-fixed .aplayer-list,
+    .aplayer.aplayer-fixed .aplayer-list ol,
+    .aplayer.aplayer-fixed .aplayer-miniswitcher {
+      background: var(--aplayer-background);
+      color: var(--aplayer-text-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-info,
+    .aplayer.aplayer-fixed .aplayer-list ol li {
+      border-color: var(--aplayer-border-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-title,
+    .aplayer.aplayer-fixed .aplayer-list-title {
+      color: var(--aplayer-text-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-author,
+    .aplayer.aplayer-fixed .aplayer-time,
+    .aplayer.aplayer-fixed .aplayer-list-author {
+      color: var(--aplayer-muted-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-icon {
+      color: var(--aplayer-control-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-icon path,
+    .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon path {
+      fill: currentColor;
+    }
+
+    .aplayer.aplayer-fixed .aplayer-bar {
+      background: var(--aplayer-bar-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-loaded {
+      background: var(--aplayer-loaded-color);
+    }
+
+    .aplayer.aplayer-fixed .aplayer-list ol li.aplayer-list-light {
+      background: var(--aplayer-background-selected);
+    }
 </style>
 
     </body>
