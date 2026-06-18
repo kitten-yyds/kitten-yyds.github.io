@@ -454,6 +454,90 @@
         }],
         fixed: true
     });
+
+    const playerStateKey = 'StackAPlayerState';
+    let isRestoringPlayerState = true;
+    let lastPlayerStateSaveTime = 0;
+
+    const readPlayerState = () => {
+        try {
+            return JSON.parse(localStorage.getItem(playerStateKey));
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const savePlayerState = () => {
+        if (isRestoringPlayerState || !ap.audio) return;
+
+        localStorage.setItem(playerStateKey, JSON.stringify({
+            index: ap.list && typeof ap.list.index === 'number' ? ap.list.index : 0,
+            currentTime: Number.isFinite(ap.audio.currentTime) ? ap.audio.currentTime : 0,
+            paused: ap.audio.paused,
+            volume: Number.isFinite(ap.audio.volume) ? ap.audio.volume : 1
+        }));
+    };
+
+    const savePlayerStateThrottled = () => {
+        const now = Date.now();
+        if (now - lastPlayerStateSaveTime < 1000) return;
+
+        lastPlayerStateSaveTime = now;
+        savePlayerState();
+    };
+
+    const restorePlayerState = () => {
+        const state = readPlayerState();
+        if (!state) {
+            isRestoringPlayerState = false;
+            return;
+        }
+
+        if (ap.list && typeof state.index === 'number' && state.index !== ap.list.index) {
+            ap.list.switch(state.index);
+        }
+
+        if (typeof state.volume === 'number') {
+            ap.audio.volume = Math.min(1, Math.max(0, state.volume));
+        }
+
+        const restoreTimeAndPlayback = () => {
+            if (
+                typeof state.currentTime === 'number' &&
+                state.currentTime > 0 &&
+                state.currentTime < (ap.audio.duration || Infinity)
+            ) {
+                ap.audio.currentTime = state.currentTime;
+            }
+
+            if (state.paused === false) {
+                const playPromise = ap.audio.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
+            }
+
+            setTimeout(() => {
+                isRestoringPlayerState = false;
+                savePlayerState();
+            }, 500);
+        };
+
+        if (ap.audio.readyState >= 1) {
+            restoreTimeAndPlayback();
+        } else {
+            ap.audio.addEventListener('loadedmetadata', restoreTimeAndPlayback, { once: true });
+        }
+    };
+
+    ap.audio.addEventListener('play', savePlayerState);
+    ap.audio.addEventListener('pause', savePlayerState);
+    ap.audio.addEventListener('ended', savePlayerState);
+    ap.audio.addEventListener('volumechange', savePlayerState);
+    ap.audio.addEventListener('timeupdate', savePlayerStateThrottled);
+    window.addEventListener('beforeunload', savePlayerState);
+
+    restorePlayerState();
 </script><style>
     body {
       background-image: url(https://kitten-yyds.github.io/background/background-white.webp);
