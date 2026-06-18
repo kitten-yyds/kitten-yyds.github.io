@@ -344,14 +344,21 @@
         }],
         fixed: true
     });
-</script>
-
-
-<style>
+</script><style>
     body {
-      background: url(https://kitten-yyds.github.io/background/background.jpg) no-repeat center top;
+      background-image: url(https://kitten-yyds.github.io/background/background-white.webp);
+      background-repeat: no-repeat;
+      background-position: center top;
       background-size: cover;
       background-attachment: fixed;
+    }
+
+    html[data-scheme="light"] body {
+      background-image: url(https://kitten-yyds.github.io/background/background-white.webp);
+    }
+
+    html[data-scheme="dark"] body {
+      background-image: url(https://kitten-yyds.github.io/background/background-black.webp);
     }
 </style>
 
