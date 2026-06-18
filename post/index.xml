@@ -7,7 +7,81 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kitten-yyds</copyright>
-        <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kitten-yyds.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kitten-yyds.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【开源项目】rtl-sdr</title>
+        <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/</link>
+        <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/</guid>
+        <description>&lt;h1 id=&#34;项目介绍&#34;&gt;项目介绍
+&lt;/h1&gt;&lt;p&gt;本项目旨在基于 RTL2832U + R820T2 芯片，实现一款稳定、低噪声的 RTL-SDR 软件定义无线电接收器。通过该项目，用户可以接收和解码多种无线信号，包括广播、通信和卫星信号等。&lt;/p&gt;
+&lt;h1 id=&#34;项目特点&#34;&gt;项目特点
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;良好的频率稳定性&lt;/strong&gt;：采用外部 TCXO 时钟源，减少温度变化影响的频率漂移，提升长时间接收的稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低噪声&lt;/strong&gt;：使用低噪声 LDO 为射频与核心电路供电，降低电源纹波对接收效果的影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用射频接口&lt;/strong&gt;：使用 SMA 射频接口，方便连接不同类型的天线、滤波器和射频前端模块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;良好的抗干扰设计&lt;/strong&gt;：通过四层 PCB、合理接地、射频走线阻抗控制和屏蔽设计，提升整体抗干扰能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接口现代化&lt;/strong&gt;：采用 USB Type-C 接口，连接更加方便，适合日常调试和长期使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适合多种信号接收&lt;/strong&gt;：可用于接收广播、航空、业余无线电、卫星信号等常见无线电信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小型化设计&lt;/strong&gt;：采用小型化设计，方便携带和使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;项目照片&#34;&gt;项目照片
+&lt;/h1&gt;&lt;h2 id=&#34;v11&#34;&gt;v1.1
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic1.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;v1.1-pic1&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic2.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;v1.1-pic2&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://kitten-yyds.github.io/v1.1-pic3.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;v1.1-pic3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;项目日志&#34;&gt;项目日志：
+&lt;/h1&gt;&lt;h2 id=&#34;v11-1&#34;&gt;v1.1
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;2026-05-08&lt;/code&gt;：项目立项，电源确定使用两颗TI的TPS7A9101DSKR低噪声LDO，混频器确定使用R820T2，开始设计电路原理图。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-05-10&lt;/code&gt;：已完成电路原理图设计，目前正在进行 PCB 布局布线。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-05-11&lt;/code&gt;：将Gerber文件发送给嘉立创进行 PCB 制作，同时开始按照bom表采购元器件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-05-14&lt;/code&gt;：收到 PCB，开始手工焊接。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-05-15&lt;/code&gt;：完成焊接，使用sdr#软件进行测试，成功接收到FM广播信号，性能表现良好，但航空波段的接收效果不佳，怀疑是地理位置的原因。发现电路板发热严重问题，手感温度大约60摄氏度以上，怀疑是rtl2832u + r820t2芯片的功耗较大导致。手上并没有热成像仪，无法准确测量芯片的温度，计划向同学借用热成像仪进行测量。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-05-22&lt;/code&gt;：在广州白云机场（ICAO: ZGGG）附近测试，发现接收效果不佳。频谱中虽然可以观察到明显的信号尖峰，但由于环境噪声较大，未能成功解调出有效信号。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-06-14&lt;/code&gt;：怀疑是广州的FM强电台造成R820T2前端过载，导致接收效果不佳。购买87.5MHz-108MHz陷波滤波器以确定是否为过载问题。设计CNC外壳以解决电路板发热问题。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-06-15&lt;/code&gt;：设计CNC外壳，将step文件发送给铨洲打样。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-06-16&lt;/code&gt;：购买的陷波滤波器到货，于当晚在学校操场安装测试，发现接收效果有明显提升，成功解调出航空信号，确认过载问题是导致接收效果不佳的主要原因，而非地理位置的原因以及电路设计问题。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-06-17&lt;/code&gt;：拆解一个 RTL2832U + FC0013 的RTL-SDR，发现其工作时并无明显发烫。由于网上关于 RTL2832U + R820T2 发热严重的资料并不多，因此怀疑热源另有他处。在没有热成像仪的情况下，使用土办法：使用助焊剂常温下为固体，遇热变为液体的特性，在两LDO以及RTL2832U + R820T2芯片表面涂上少量的助焊剂，上电启动SDR#软件，观察芯片表面的助焊剂的融化速度，发现发热源并非RTL2832U + R820T2，而是5V降压到1.2V的LDO，猜测是因为压差较大导致LDO效率较低，产生大量热量。计划更换为DCDC + LDO 的组合，以增加效率减少发热，同时保持输出电压的稳定性。这更改将会在v1.2版本中实现。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;2026-06-18&lt;/code&gt;：收到CNC外壳，安装完成后测试。确认外壳的GND接地良好。虽然CNC外壳的散热效果不错，但由于LDO发热严重，仍然存在过热问题。计划尽快更换为DCDC + LDO 的组合，以解决发热问题。&lt;/p&gt;
+&lt;h2 id=&#34;v12&#34;&gt;v1.2
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;2026-06-17&lt;/code&gt;：根据 v1.1 的测试结果，对 v1.2 版本进行以下设计更改：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将电路中的5V通过DCDC（TLV62569DRLR）降压到1.8V后，通过低噪声的LDO降压至1.2V，以提高效率减少发热，同时保持输出电压的稳定性。&lt;/li&gt;
+&lt;li&gt;确认在RTL-SDR应用中，不需要EEPROM，因此删除EEPROM，降低成本和复杂度。&lt;/li&gt;
+&lt;li&gt;挖去 TCXO 正下方L2，L3的铜皮，并保留L4的 GND 铜皮，以降低由可能存在的发热源引起的频率漂移，同时兼顾时钟区域的屏蔽与 EMI/EMC 性能。&lt;/li&gt;
+&lt;li&gt;在 R820T2 的 RF 输入端增加低寄生电容 ESD 保护器件，以降低静电放电对芯片的损害风险。&lt;/li&gt;
+&lt;li&gt;优化 SMA 接口中心焊盘处的射频过渡结构，使其参考 L4 地平面，以减小阻抗不连续引起的信号反射。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>高考结束啦</title>
         <link>https://kitten-yyds.github.io/p/%E9%AB%98%E8%80%83%E7%BB%93%E6%9D%9F%E5%95%A6/</link>
         <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
