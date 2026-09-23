@@ -496,6 +496,11 @@ BOM表中列出了电路板上使用的所有元器件，包括芯片、电阻�
 &lt;p&gt;&lt;code&gt;2026-09-11&lt;/code&gt;：收到 PCB，完成焊接。并在操场测试，成功接收到 1090MHz ADS-B 信号，搜到的飞机数量明显增加，搜到的飞机最远距离为 50 km。同天将CNC外壳的设计文件发送至铨洲进行打样，并购买螺丝等紧固件。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;2026-09-15&lt;/code&gt;：收到铨洲CNC外壳，发现上外壳SMA接口处未留有足够的空间，导致上外壳无法安装，同天修改CNC外壳设计文件，并重新发送至铨洲进行打样。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;2026-09-20&lt;/code&gt;：收到铨洲CNC外壳，安装完成后测试，确认外壳的GND接地良好。&lt;/p&gt;
+&lt;h2 id=&#34;开源地址&#34;&gt;开源地址
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OSHWHub&lt;/strong&gt;：&lt;a class=&#34;link&#34; href=&#34;https://oshwhub.com/kitten_yyds/project_fscroszb?jspm=hub.zy.zp.gc1___hub.hm.zp&amp;amp;jlc_vid=RVFWAVRWE1haAlZWFFYKUQBQQ1JaVgICQwNaUVcHRwIxVlNfR1BZUVBTQFRaUTtWKA4dDxMOAgNABAsL&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Github&lt;/strong&gt;：&lt;a class=&#34;link&#34; href=&#34;https://github.com/kitten-yyds/kitten-rtl-sdr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Link&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;免责声明&#34;&gt;免责声明
 &lt;/h2&gt;&lt;p&gt;本项目仅用于学习、研究和合法的无线电实验。使用者必须遵守所在国家或地区关于无线电频谱、隐私保护、通信监听、数据处理和设备使用的相关法律法规。&lt;/p&gt;
 &lt;p&gt;禁止将本项目用于未经授权的窃听、解密、干扰、欺骗、数据收集、侵犯他人隐私或任何其他违法活动。&lt;/p&gt;
