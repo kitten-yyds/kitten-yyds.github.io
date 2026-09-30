@@ -401,6 +401,7 @@
 		data-flex-basis="324px"
 	
 ></p>
+<p>还未完成，还请耐心等待后续更新喵&hellip;&hellip;</p>
 <h2 id="硬件设计说明">硬件设计说明
 </h2><h3 id="电源设计">电源设计
 </h3><p>电源输入为接口为 USB Type-C ，可能来自电脑的 USB 供电或者充电宝的，因此可以总结成上级电源自于开关电源，可能会有纹波以及噪声，因此本项目没有直接拿 USB Type-C 的 5V 供电给射频电路，而是使用了 TPS7A91 LDO 降压至 QPL9547 LNA 可以接受的电压：4.5V 。由于该电路板不需要 USB 通信，因此使用了容易焊接的USB Type-C 6 Pin 母座。同时为了 PD 的兼容性，USB Type-C 6 Pin 母座的 CC1、CC2 引脚通过 5.1K 电阻接地，确保设备可以正常识别为 UFP（Upstream Facing Port）并供给 5V 。</p>
