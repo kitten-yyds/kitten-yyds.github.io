@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="VHF 航空波段[118MHz–137MHz] 接收前端项目">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="VHF 航空波段 [118MHz–137MHz] 接收前端项目">
 <title>【开源项目】118–137MHz VHF 航空波段接收前端</title>
 
 <link rel='canonical' href='https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.52b09d0109702175dde784f7d80dad4fe9c4d326f55b2995a86fd7aa19ed2477.css"><meta property='og:title' content="【开源项目】118–137MHz VHF 航空波段接收前端">
-<meta property='og:description' content="VHF 航空波段[118MHz–137MHz] 接收前端项目">
+<meta property='og:description' content="VHF 航空波段 [118MHz–137MHz] 接收前端项目">
 <meta property='og:url' content='https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/'>
 <meta property='og:site_name' content='kitten-yyds'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-09-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-30T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="【开源项目】118–137MHz VHF 航空波段接收前端">
-<meta name="twitter:description" content="VHF 航空波段[118MHz–137MHz] 接收前端项目">
+<meta name="twitter:description" content="VHF 航空波段 [118MHz–137MHz] 接收前端项目">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -279,7 +279,17 @@
     <li><a href="#项目介绍">项目介绍</a></li>
     <li><a href="#项目特点">项目特点</a></li>
     <li><a href="#开源资料">开源资料</a></li>
-    <li><a href="#复刻说明">复刻说明</a></li>
+    <li><a href="#复刻说明">复刻说明</a>
+      <ol>
+        <li><a href="#电路板">电路板</a></li>
+      </ol>
+    </li>
+    <li><a href="#硬件设计说明">硬件设计说明</a>
+      <ol>
+        <li><a href="#电源设计">电源设计</a></li>
+        <li><a href="#bpf-bandpass-filter-仿真与设计">BPF [Bandpass Filter] 仿真与设计</a></li>
+      </ol>
+    </li>
     <li><a href="#设计者">设计者</a></li>
   </ol>
 </nav>
@@ -313,7 +323,7 @@
     
         
         <h3 class="article-subtitle">
-            VHF 航空波段[118MHz–137MHz] 接收前端项目
+            VHF 航空波段 [118MHz–137MHz] 接收前端项目
         </h3>
         
     </div>
@@ -367,7 +377,6 @@
 <ul>
 <li>PCB 工程文件</li>
 <li>BOM 表</li>
-<li>项目日志</li>
 </ul>
 <h2 id="复刻说明">复刻说明
 </h2><p>需要准备的工具：</p>
@@ -376,7 +385,72 @@
 <li>测试工具：万用表（可选）</li>
 <li>其他：超稳的小手，擅长思考的大脑，以及一颗不服输的心~</li>
 </ul>
-<p>还未完成，敬请期待后续更新&hellip;&hellip;</p>
+<h3 id="电路板">电路板
+</h3><p>电路板建议下单<code>v1.1</code>版本的，4层板，尺寸15mm x 30mm，厚度为1.6mm。板材为FR-4，层压结构为嘉立创的JLC04161H-3313，阻抗管控选±20%，确认生产稿选项可以选择不需要，可以勾选在指定位置添加客编（文件已有位置），可以依照下图进行下单：</p>
+<p><img src="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order.png"
+	width="987"
+	height="729"
+	srcset="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order_hu_30503f0292999d53.png 480w, /p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order_hu_36b460009090dde3.png 1024w"
+	loading="lazy"
+	
+		alt="Pcb Order"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="324px"
+	
+></p>
+<h2 id="硬件设计说明">硬件设计说明
+</h2><h3 id="电源设计">电源设计
+</h3><p>电源输入为接口为 USB Type-C ，可能来自电脑的 USB 供电或者充电宝的，因此可以总结成上级电源自于开关电源，可能会有纹波以及噪声，因此本项目没有直接拿 USB Type-C 的 5V 供电给射频电路，而是使用了 TPS7A91 LDO 降压至 QPL9547 LNA 可以接受的电压：4.5V 。由于该电路板不需要 USB 通信，因此使用了容易焊接的USB Type-C 6 Pin 母座。同时为了 PD 的兼容性，USB Type-C 6 Pin 母座的 CC1、CC2 引脚通过 5.1K 电阻接地，确保设备可以正常识别为 UFP（Upstream Facing Port）并供给 5V 。</p>
+<h3 id="bpf-bandpass-filter-仿真与设计">BPF [Bandpass Filter] 仿真与设计
+</h3><p>本人首先用网站 <a class="link" href="https://calcformula.com/bandpass-filter-calculator/"  target="_blank" rel="noopener"
+    >Bandpass Filter Calculator</a> 通过以下参数计算：</p>
+<p><img src="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters.png"
+	width="1424"
+	height="715"
+	srcset="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters_hu_dc421b6b78f8fd32.png 480w, /p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters_hu_3229a32748084640.png 1024w"
+	loading="lazy"
+	
+		alt="Bandpass Filter Calculator Parameters"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="477px"
+	
+></p>
+<p>得到电感和电容的初步值：</p>
+<p><img src="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result.png"
+	width="1391"
+	height="1185"
+	srcset="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result_hu_24484e9bf5d318e9.png 480w, /p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result_hu_c9cce5d7704dd820.png 1024w"
+	loading="lazy"
+	
+		alt="Bandpass Filter Calculator Result"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="281px"
+	
+></p>
+<p>这里选用<code>Shunt Input First</code>，电感就近选用<code>7.8nH</code>、<code>470nH</code>，电容就近选用<code>200pF</code>、<code>3.3pF</code>。然后通过 MATLAB 进行仿真和优化。</p>
+<p><img src="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result.png"
+	width="2500"
+	height="1625"
+	srcset="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result_hu_b08d7f4353d6759f.png 480w, /p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result_hu_db4347bd646fc9de.png 1024w"
+	loading="lazy"
+	
+		alt="Bandpass Filter Matlab Simulation Result"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="369px"
+	
+></p>
 <h2 id="设计者">设计者
 </h2><p><img src="/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/kitten-yyds-background-path.svg"
 	

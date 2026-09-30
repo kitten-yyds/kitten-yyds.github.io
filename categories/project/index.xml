@@ -30,7 +30,6 @@
 &lt;ul&gt;
 &lt;li&gt;PCB 工程文件&lt;/li&gt;
 &lt;li&gt;BOM 表&lt;/li&gt;
-&lt;li&gt;项目日志&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;复刻说明&#34;&gt;复刻说明
 &lt;/h2&gt;&lt;p&gt;需要准备的工具：&lt;/p&gt;
@@ -39,7 +38,72 @@
 &lt;li&gt;测试工具：万用表（可选）&lt;/li&gt;
 &lt;li&gt;其他：超稳的小手，擅长思考的大脑，以及一颗不服输的心~&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;还未完成，敬请期待后续更新&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;电路板&#34;&gt;电路板
+&lt;/h3&gt;&lt;p&gt;电路板建议下单&lt;code&gt;v1.1&lt;/code&gt;版本的，4层板，尺寸15mm x 30mm，厚度为1.6mm。板材为FR-4，层压结构为嘉立创的JLC04161H-3313，阻抗管控选±20%，确认生产稿选项可以选择不需要，可以勾选在指定位置添加客编（文件已有位置），可以依照下图进行下单：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order.png&#34;
+	width=&#34;987&#34;
+	height=&#34;729&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order_hu_30503f0292999d53.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/pcb-order_hu_36b460009090dde3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pcb Order&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;324px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;硬件设计说明&#34;&gt;硬件设计说明
+&lt;/h2&gt;&lt;h3 id=&#34;电源设计&#34;&gt;电源设计
+&lt;/h3&gt;&lt;p&gt;电源输入为接口为 USB Type-C ，可能来自电脑的 USB 供电或者充电宝的，因此可以总结成上级电源自于开关电源，可能会有纹波以及噪声，因此本项目没有直接拿 USB Type-C 的 5V 供电给射频电路，而是使用了 TPS7A91 LDO 降压至 QPL9547 LNA 可以接受的电压：4.5V 。由于该电路板不需要 USB 通信，因此使用了容易焊接的USB Type-C 6 Pin 母座。同时为了 PD 的兼容性，USB Type-C 6 Pin 母座的 CC1、CC2 引脚通过 5.1K 电阻接地，确保设备可以正常识别为 UFP（Upstream Facing Port）并供给 5V 。&lt;/p&gt;
+&lt;h3 id=&#34;bpf-bandpass-filter-仿真与设计&#34;&gt;BPF [Bandpass Filter] 仿真与设计
+&lt;/h3&gt;&lt;p&gt;本人首先用网站 &lt;a class=&#34;link&#34; href=&#34;https://calcformula.com/bandpass-filter-calculator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bandpass Filter Calculator&lt;/a&gt; 通过以下参数计算：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters.png&#34;
+	width=&#34;1424&#34;
+	height=&#34;715&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters_hu_dc421b6b78f8fd32.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-parameters_hu_3229a32748084640.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Bandpass Filter Calculator Parameters&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;477px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;得到电感和电容的初步值：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result.png&#34;
+	width=&#34;1391&#34;
+	height=&#34;1185&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result_hu_24484e9bf5d318e9.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-calculator-result_hu_c9cce5d7704dd820.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Bandpass Filter Calculator Result&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;281px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这里选用&lt;code&gt;Shunt Input First&lt;/code&gt;，电感就近选用&lt;code&gt;7.8nH&lt;/code&gt;、&lt;code&gt;470nH&lt;/code&gt;，电容就近选用&lt;code&gt;200pF&lt;/code&gt;、&lt;code&gt;3.3pF&lt;/code&gt;。然后通过 MATLAB 进行仿真和优化。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result.png&#34;
+	width=&#34;2500&#34;
+	height=&#34;1625&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result_hu_b08d7f4353d6759f.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result_hu_db4347bd646fc9de.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Bandpass Filter Matlab Simulation Result&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;369px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;设计者&#34;&gt;设计者
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/kitten-yyds-background-path.svg&#34;
 	
