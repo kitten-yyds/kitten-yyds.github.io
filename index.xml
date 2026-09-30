@@ -7,7 +7,53 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kitten-yyds</copyright>
-        <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kitten-yyds.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kitten-yyds.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【开源项目】118–137MHz VHF 航空波段接收前端</title>
+        <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/</link>
+        <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/</guid>
+        <description>&lt;h2 id=&#34;项目介绍&#34;&gt;项目介绍
+&lt;/h2&gt;&lt;p&gt;这是一个 VHF 航空波段（118MHz–137MHz）接收前端项目。采用 TPS7A91 LDO、三阶切比雪夫带通滤波器和 QPL9547 LNA，适用于航空通信接收与 SDR 前端。&lt;/p&gt;
+&lt;h2 id=&#34;项目特点&#34;&gt;项目特点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高性能 LDO&lt;/strong&gt;：采用 TPS7A91 LDO，提供低噪声和高 PSRR 的电源，确保射频电路的稳定工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;三阶切比雪夫带通滤波器&lt;/strong&gt;：设计了三阶切比雪夫带通滤波器，具有良好的选择性和低插入损耗，能够有效抑制非目标频段的干扰信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高增益 LNA&lt;/strong&gt;：使用 QPL9547 LNA，提供高增益和低噪声系数，提升接收信号的质量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用于航空通信接收&lt;/strong&gt;：专为航空通信频段设计，可以防止干扰和提升接收性能，适合用于航空通信接收与 SDR 前端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用射频接口&lt;/strong&gt;：使用 SMA 射频接口，方便连接不同类型的天线、滤波器和射频前端模块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接口现代化&lt;/strong&gt;： USB Type-C 接口，连接更加方便。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小型化设计&lt;/strong&gt;：采用小型化设计，方便携带和使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;开源资料&#34;&gt;开源资料
+&lt;/h2&gt;&lt;p&gt;本项目计划开源以下资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PCB 工程文件&lt;/li&gt;
+&lt;li&gt;BOM 表&lt;/li&gt;
+&lt;li&gt;项目日志&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复刻说明&#34;&gt;复刻说明
+&lt;/h2&gt;&lt;p&gt;需要准备的工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;焊接工具：热风枪或加热台，电烙铁，焊膏，助焊剂，镊子，放大镜，洗板水，纳米海绵（或其他清洁板子的用品）&lt;/li&gt;
+&lt;li&gt;测试工具：万用表（可选）&lt;/li&gt;
+&lt;li&gt;其他：超稳的小手，擅长思考的大脑，以及一颗不服输的心~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还未完成，敬请期待后续更新&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;设计者&#34;&gt;设计者
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/kitten-yyds-background-path.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;kitten-yyds&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>【开源项目】RTL-SDR</title>
         <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/</link>
         <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
@@ -52,7 +98,7 @@
 &lt;h2 id=&#34;复刻说明&#34;&gt;复刻说明
 &lt;/h2&gt;&lt;p&gt;需要准备的工具：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;焊接工具：热风枪或加热台，焊膏，助焊剂，镊子，放大镜，洗板水，纳米海绵（或其他清洁板子的用品）&lt;/li&gt;
+&lt;li&gt;焊接工具：热风枪或加热台，电烙铁，焊膏，助焊剂，镊子，放大镜，洗板水，纳米海绵（或其他清洁板子的用品）&lt;/li&gt;
 &lt;li&gt;测试工具：万用表，示波器（可选）&lt;/li&gt;
 &lt;li&gt;组装工具：1.5mm内六角扳手（用于安装CNC外壳的螺丝）&lt;/li&gt;
 &lt;li&gt;其他：超稳的小手，擅长思考的大脑，以及一颗不服输的心~&lt;/li&gt;
@@ -506,7 +552,7 @@ BOM表中列出了电路板上使用的所有元器件，包括芯片、电阻�
 &lt;p&gt;禁止将本项目用于未经授权的窃听、解密、干扰、欺骗、数据收集、侵犯他人隐私或任何其他违法活动。&lt;/p&gt;
 &lt;p&gt;使用者应自行承担使用本项目产生的全部法律和安全责任。项目作者不对因使用本项目造成的任何直接或间接损失及法律后果负责。&lt;/p&gt;
 &lt;h2 id=&#34;设计者&#34;&gt;设计者
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/kitten-yyds-background-path.svg&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/kitten-yyds-background-path.svg&#34;
 	
 	
 	
