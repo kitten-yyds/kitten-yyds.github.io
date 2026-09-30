@@ -89,7 +89,7 @@
 		data-flex-basis=&#34;281px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;这里选用&lt;code&gt;Shunt Input First&lt;/code&gt;，电感就近选用&lt;code&gt;7.8nH&lt;/code&gt;、&lt;code&gt;470nH&lt;/code&gt;，电容就近选用&lt;code&gt;200pF&lt;/code&gt;、&lt;code&gt;3.3pF&lt;/code&gt;。然后通过 MATLAB 进行仿真和优化。&lt;/p&gt;
+&lt;p&gt;这里选用&lt;code&gt;Shunt Input First&lt;/code&gt;，电感就近选用&lt;code&gt;7.8nH&lt;/code&gt;、&lt;code&gt;470nH&lt;/code&gt;，电容就近选用&lt;code&gt;200pF&lt;/code&gt;、&lt;code&gt;3.3pF&lt;/code&gt;。然后通过 MATLAB 进行仿真：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/bandpass-filter-simulation-result.png&#34;
 	width=&#34;2500&#34;
 	height=&#34;1625&#34;
