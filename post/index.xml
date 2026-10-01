@@ -7,10 +7,157 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kitten-yyds</copyright>
-        <lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kitten-yyds.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 02 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://kitten-yyds.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>【开源项目】电赛控制题 ST 万能板</title>
+        <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/</link>
+        <pubDate>Fri, 02 Oct 2026 00:00:00 +0800</pubDate>
+        
+        <guid>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/</guid>
+        <description>&lt;h2 id=&#34;项目介绍&#34;&gt;项目介绍
+&lt;/h2&gt;&lt;p&gt;这是一个针对电赛控制题设计的 STM32 万能板，使用 &lt;code&gt;STM32F103VET6&lt;/code&gt; 芯片，内部集成有有刷电机驱动、MOS管、蓝牙SPP、6轴IMU等电路。
+&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/3d-st-universal-board-rendering.png&#34;
+	width=&#34;4096&#34;
+	height=&#34;2619&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/3d-st-universal-board-rendering_hu_73258946ebcb8189.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/3d-st-universal-board-rendering_hu_fb4e9de724e5f497.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;st-universal-board-rendering&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;156&#34;
+		data-flex-basis=&#34;375px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;项目特点&#34;&gt;项目特点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;STM32F103VET6 主控&lt;/strong&gt;：采用 STM32F103VET6，板载 8 MHz 晶振、复位与 BOOT 配置电路，并预留 SWD 下载调试接口，便于程序开发和调试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完善的电源架构&lt;/strong&gt;：支持 12 V 输入，使用 TPS54560 将 12 V 降压至 5 V，再通过 RT9013-33 将 5 V 稳压至 3.3 V，为电机、外设和 MCU 分别提供合适的供电电压。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双路有刷电机驱动&lt;/strong&gt;：板载两路 DRV8874 电机驱动电路，支持 PWM 调速和方向控制，并预留电机霍尔信号接口，方便进行精确的电机控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;四路 MOSFET 输出&lt;/strong&gt;：集成 4 路 MOSFET 开关控制通道，可用于控制电磁铁、电机、灯带等大功率外部负载。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;步进电机扩展接口&lt;/strong&gt;：预留步进电机控制接口，可连接外部步进电机驱动模块，方便扩展不同类型的执行机构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;丰富的传感器接口&lt;/strong&gt;：板载 LSM6DSRTR 六轴 IMU，并引出 SPI 接口，可用于姿态检测、角度测量和运动控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多种通信与扩展接口&lt;/strong&gt;：提供蓝牙 SPP、板载 UART、摄像头 UART、I2C、OLED、USB Type-C 和 SWD 等接口，方便连接显示屏、无线模块、摄像头及其他传感器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多路常用外设&lt;/strong&gt;：集成 3 个状态指示 LED、蜂鸣器、按键输入和 4 路舵机 PWM 接口，能够覆盖电赛控制题中常见的输入输出需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPIO 资源充足&lt;/strong&gt;：原理图中预留约 30 路 GPIO，可连接循迹传感器、按键、编码器和其他自定义模块，具有较强的通用性和扩展能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;面向电赛控制题设计&lt;/strong&gt;：将电源管理、电机驱动、MOSFET 输出、传感器采集、通信和调试接口集中在同一块 PCB 上，减少外围接线，适合快速搭建和调试竞赛作品。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工整美观&lt;/strong&gt;：板子相对小巧，设计工整，布局合理，外观美观。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;开源资料&#34;&gt;开源资料
+&lt;/h2&gt;&lt;p&gt;本项目开源以下资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PCB 工程文件&lt;/li&gt;
+&lt;li&gt;BOM 表&lt;/li&gt;
+&lt;li&gt;3D 文件&lt;/li&gt;
+&lt;li&gt;引脚定义表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复刻说明&#34;&gt;复刻说明
+&lt;/h2&gt;&lt;p&gt;需要准备的工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;焊接工具：热风枪，电烙铁，焊膏，吸锡带，助焊剂，镊子，放大镜，洗板水，纳米海绵（或其他清洁板子的用品）&lt;/li&gt;
+&lt;li&gt;测试工具：万用表（可选），示波器（可选）&lt;/li&gt;
+&lt;li&gt;其他：超稳的小手，擅长思考的大脑，以及一颗不服输的心~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;电路板&#34;&gt;电路板
+&lt;/h2&gt;&lt;p&gt;电路板为4层板，尺寸60mm x 90mm，厚度为1.6mm。板材为FR-4，无层压结构要求以及阻抗管控要求，确认生产稿选项可以选择不需要，可以选择5*5指定位置添加图文二维码，可以依照下图进行下单：
+&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/pcb-order.png&#34;
+	width=&#34;985&#34;
+	height=&#34;743&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/pcb-order_hu_255e075cdc2d98b4.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/pcb-order_hu_d3515b2152e00edc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pcb-order&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如果是OSP工艺，除了通孔焊盘外，建议先用焊膏/焊锡在焊盘上上锡，再用吸锡带拖平，用洗板水清理干净板子再焊接元件。焊接顺序建议：顶层贴片芯片元件-&amp;gt;贴片电阻电容电感LED-&amp;gt;底层贴片芯片元件-&amp;gt;上下两面座子-&amp;gt;插件。&lt;/p&gt;
+&lt;p&gt;焊接时需要注意焊接温度，中温锡建议热风枪330-350°C，风速10%-30%，烙铁330。注意塑料件得焊接温度，以防变形。清理电路板时，尽可能避免擦拭塑料件，以防腐蚀。&lt;/p&gt;
+&lt;h2 id=&#34;硬件设计说明&#34;&gt;硬件设计说明
+&lt;/h2&gt;&lt;h3 id=&#34;引脚定义图&#34;&gt;引脚定义图
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/excel-pin-map.png&#34;
+	width=&#34;1145&#34;
+	height=&#34;948&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/excel-pin-map_hu_be9d1d8bb82d1320.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/excel-pin-map_hu_149b2be7a3fe71eb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pin-map&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;289px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;电源设计&#34;&gt;电源设计
+&lt;/h3&gt;&lt;p&gt;电路板需要2路电压：5V、3.3V。电源输入为 3s 锂电池，电压范围为 9V~12.6V。使用 TPS54560 将 12 V 降压至 5 V，再通过 RT9013-33 将 5 V 稳压至 3.3 V，为板上 MCU 和外设供电。5V 与 3.3V 输出端分别设置 LED 电源指示灯。在 12V 输入网络中设置 22uF 铝电解电容，用于抑制输入电压波动和上电过程中的瞬态冲击。USB Type-C 接口为供电端，不是受电端，目的是为外围的摄像头等外设供电。&lt;/p&gt;
+&lt;h3 id=&#34;有刷电机驱动&#34;&gt;有刷电机驱动
+&lt;/h3&gt;&lt;p&gt;板载两路基于 DRV8874 的有刷直流电机驱动电路，分别连接电机 A 和电机 B。每路驱动均提供 EN/IN1 和 PH/IN2 控制接口，可通过 PWM 调节电机转速，并控制电机转向；同时引出电机输出端和两路霍尔反馈接口，便于实现闭环控制。&lt;/p&gt;
+&lt;p&gt;DRV8874 内部集成电流检测、电流调节和过流保护功能。电路通过 VREF 与 IPROPI 设置电流调节阈值，其中 VREF 接 3.3V，IPROPI 通过 2.4KΩ 电阻接地，电流调节阈值为 3A。DRV8874 本身支持最高 6A 峰值输出能力，但本电路的限流值由外围参数决定。(&lt;a class=&#34;link&#34; href=&#34;https://www.ti.com/lit/ds/symlink/drv8874.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ti.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;两路驱动器的 IMODE 均通过 20KΩ 电阻接地，配置为逐周期电流斩波和过流自动重试模式。当电机堵转或负载过大导致电流超过设定阈值时，驱动器会暂时关闭输出并拉低 nFAULT 信号；经过重试时间后自动恢复驱动，若过流仍然存在则重复保护过程。&lt;/p&gt;
+&lt;p&gt;每一个 DRV8874 都有一个 LED 指示灯，连接到驱动器的 nFAULT 信号，用于指示电机驱动器的过流、过温、欠压等故障保护状态。&lt;/p&gt;
+&lt;h3 id=&#34;mosfet-输出&#34;&gt;MOSFET 输出
+&lt;/h3&gt;&lt;p&gt;板载 4 路独立的 12V 高侧 MOS 管开关输出，连接至 STM32 的 PC6~PC9，可通过定时器复用功能实现 PWM 控制。每一路采用 &lt;code&gt;NCE20P45Q&lt;/code&gt; P 沟道 MOS 管作为主功率开关，并配合 &lt;code&gt;AO3400&lt;/code&gt; N 沟道 MOS 管进行栅极驱动，实现对外部直流负载的通断控制。&lt;/p&gt;
+&lt;p&gt;4 路输出均通过独立的 2P 接口引出，可用于控制继电器、电磁阀、灯带及其他 12V 负载。各路 MOS 管采用高侧开关结构，MCU 未输出控制信号时默认关闭，有利于提高系统上电时的安全性。&lt;/p&gt;
+&lt;p&gt;另外需要注意的是，MOSFET 输出通道未配置专用续流二极管，驱动继电器、电磁阀等感性负载时，需要在负载两端并联续流二极管，以防止感性负载断电时产生的反向电压损坏 MOS 管。&lt;/p&gt;
+&lt;h3 id=&#34;舵机接口&#34;&gt;舵机接口
+&lt;/h3&gt;&lt;p&gt;板载 4 路独立的舵机 PWM 输出接口，接到了 STM32 可复用 TIM 引脚，可以进行 PWM 控制。每一路采用标准舵机接口，可用于控制不同类型的舵机。&lt;/p&gt;
+&lt;h3 id=&#34;摄像头接口&#34;&gt;摄像头接口
+&lt;/h3&gt;&lt;p&gt;摄像头接口不提供电源，仅提供 UART 的 TX/RX 信号线以及 GND。摄像头电源可以来自 USB Type-C 接口。&lt;/p&gt;
+&lt;h3 id=&#34;oled接口&#34;&gt;OLED接口
+&lt;/h3&gt;&lt;p&gt;板载一个 I2C 接口，可用于连接 OLED 显示屏，实现信息显示和人机交互功能。同时需要注意的是，板子上并没有上拉电阻，因为往往 OLED 模块自带上拉电阻，因此在连接 OLED 时无需额外添加上拉电阻。&lt;/p&gt;
+&lt;h3 id=&#34;蓝牙spp&#34;&gt;蓝牙SPP
+&lt;/h3&gt;&lt;p&gt;板载一个蓝牙 SPP 模块，使用 UART 接口与 STM32 通信，可用于无线调试、数据传输远程控制等。&lt;/p&gt;
+&lt;h2 id=&#34;实物照片&#34;&gt;实物照片
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-top.png&#34;
+	width=&#34;2851&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-top_hu_466a6dc1a092732f.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-top_hu_8b00851c07f21110.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;real-pic-top&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;371px&#34;
+	
+&gt;
+&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-bottom.png&#34;
+	width=&#34;2674&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-bottom_hu_ef461da47f7a2020.png 480w, https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/real-pic-bottom_hu_94a440a508a8f85.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;real-pic-bottom&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;348px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;贡献者&#34;&gt;贡献者
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%94%B5%E8%B5%9B%E6%8E%A7%E5%88%B6%E9%A2%98-st-%E4%B8%87%E8%83%BD%E6%9D%BF/kitten-yyds-background-path.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;kitten-yyds&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>【开源项目】118–137MHz VHF 航空波段接收前端</title>
         <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/</link>
-        <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 30 Sep 2026 00:00:00 +0800</pubDate>
         
         <guid>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE118137mhz-vhf-%E8%88%AA%E7%A9%BA%E6%B3%A2%E6%AE%B5%E6%8E%A5%E6%94%B6%E5%89%8D%E7%AB%AF/</guid>
         <description>&lt;h2 id=&#34;项目介绍&#34;&gt;项目介绍
@@ -121,7 +268,7 @@
         <item>
         <title>【开源项目】RTL-SDR</title>
         <link>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/</link>
-        <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+        <pubDate>Thu, 18 Jun 2026 00:00:00 +0800</pubDate>
         
         <guid>https://kitten-yyds.github.io/p/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AErtl-sdr/</guid>
         <description>&lt;h2 id=&#34;项目介绍&#34;&gt;项目介绍
@@ -632,7 +779,7 @@ BOM表中列出了电路板上使用的所有元器件，包括芯片、电阻�
         <item>
         <title>高考结束啦</title>
         <link>https://kitten-yyds.github.io/p/%E9%AB%98%E8%80%83%E7%BB%93%E6%9D%9F%E5%95%A6/</link>
-        <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
+        <pubDate>Wed, 11 Jun 2025 00:00:00 +0800</pubDate>
         
         <guid>https://kitten-yyds.github.io/p/%E9%AB%98%E8%80%83%E7%BB%93%E6%9D%9F%E5%95%A6/</guid>
         <description>&lt;p&gt;高考结束啦！🎉 我的个人网站也正式上线啦！✨&lt;br&gt;
